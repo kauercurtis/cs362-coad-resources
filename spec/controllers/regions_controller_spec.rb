@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe RegionsController, type: :controller do
+    
 
     # context 'as an admin user' do
     #     let (:user) {create(:user, :admin)}
