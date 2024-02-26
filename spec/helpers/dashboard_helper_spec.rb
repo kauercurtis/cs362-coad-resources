@@ -18,7 +18,8 @@ RSpec.describe DashboardHelper, type: :helper do
             expect(helper.dashboard_for(user)).to eq('admin_dashboard') 
         end     
         it "#org submited "do 
-        user=double('user', admin?:false , organization: double( 'Organization',submitted?: true , approved?: false) )
+            # let (:user) {instance_double('user', admin?:false , organization: double( 'Organization',submitted?: true , approved?: false))}
+            user=double('user', admin?:false , organization: double( 'Organization',submitted?: true , approved?: false) )
             expect(helper.dashboard_for(user)).to eq("organization_submitted_dashboard") 
         end 
         it "#org aproved "do 
