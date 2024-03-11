@@ -4,7 +4,7 @@ RSpec.describe 'Deleting a Region', type: :feature do
 
     before do
         @admin = create('user', :admin)
-        @region = create(:region)
+        @region = create(:region ,name: 'fake_region_hello')
     end
       
     it 'admin can delete a region' do
@@ -12,9 +12,9 @@ RSpec.describe 'Deleting a Region', type: :feature do
       
        log_in_as(@admin)
        visit regions_path 
-       click_on @region
+       click_on 'fake_region_hello'
        click_on 'Delete'
-       expect(current_path).to eq regions_path
+       expect(page.body).to have_text 'fake_region_hello was deleted'
         
 
     end

@@ -4,7 +4,7 @@ RSpec.describe 'Deleting a Resource Category', type: :feature do
 
     before do
         @admin = create('user', :admin)
-        @resource_category = create(:resource_category)
+        @resource_category = create(:resource_category, name: 'i am a test')
     end
       
     it 'can apporve an org' do
@@ -17,7 +17,7 @@ RSpec.describe 'Deleting a Resource Category', type: :feature do
        
        click_on 'Delete'
       
-       expect(current_path).to eq resource_categories_path 
+       expect(page.body).to have_text 'i am a test was deleted'
     
     end
 

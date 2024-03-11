@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Creating an Organization Application', type: :feature do
     before do
         @admin = create('user', :admin)
-        @organization = create(:organization )
+        @organization = create(:organization , name: 'kevin')
     end
       
     it 'can create an org' do

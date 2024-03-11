@@ -4,10 +4,10 @@ RSpec.describe 'Rejecting an organization', type: :feature do
 
     before do
         @admin = create('user', :admin)
-        @organization = create(:organization )
+        @organization = create(:organization, name: 'kevin' )
     end
       
-    it 'can apporve an org' do
+    it 'can reject an org' do
     #      User Input Part
       
        log_in_as(@admin)
@@ -17,7 +17,7 @@ RSpec.describe 'Rejecting an organization', type: :feature do
        first(:link , "Review").click
        click_on 'Reject'
       
-       expect(current_path).to eq organizations_path
+       expect(page.body).to have_text 'kevin has been rejected' 
     
     end
 end

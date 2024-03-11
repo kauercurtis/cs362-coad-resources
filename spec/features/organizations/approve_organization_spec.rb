@@ -4,7 +4,7 @@ RSpec.describe 'Approving an organization', type: :feature do
 
     before do
         @admin = create('user', :admin)
-        @organization = create(:organization )
+        @organization = create(:organization , name: "kevin" )
     end
       
     it 'can apporve an org' do
@@ -16,9 +16,8 @@ RSpec.describe 'Approving an organization', type: :feature do
         # click_on 'Review'
        first(:link , "Review").click
        click_on 'Approve'
-      
-       expect(current_path).to eq organizations_path
-    
+
+       expect(page.body).to have_text 'kevin has been approved' 
     end
 
 end
