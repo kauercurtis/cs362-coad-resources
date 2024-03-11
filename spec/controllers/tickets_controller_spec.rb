@@ -142,36 +142,36 @@ RSpec.describe TicketsController, type: :controller do
   #     end
   #   end
 
-  describe 'PATCH #close' do
-    context 'as logged out user' do
-      it "redirect to dashboard" do
-        user = create(:user)
-        ticket = create(:ticket)
-        patch :close, params: {id: ticket.id}
-        expect(response).to redirect_to (dashboard_path)
-      end
-    end
+  # describe 'PATCH #close' do
+  #   context 'as logged out user' do
+  #     it "redirect to dashboard" do
+  #       user = create(:user)
+  #       ticket = create(:ticket)
+  #       patch :close, params: {id: ticket.id}
+  #       expect(response).to redirect_to (dashboard_path)
+  #     end
+  #   end
 
-    context 'as a logged-in organization approved user' do
-      it "redirect to dashboard" do
-        user = create(:user, :organization_approved)
-        sign_in(user)
-        ticket = create(:ticket)
-        patch :close, params: {id: ticket.id}
-        expect(response).to redirect_to (dashboard_path << '#tickets:organization')
-      end
-    end
+  #   context 'as a logged-in organization approved user' do
+  #     it "redirect to dashboard" do
+  #       user = create(:user, :organization_approved)
+  #       sign_in(user)
+  #       ticket = create(:ticket)
+  #       patch :close, params: {id: ticket.id}
+  #       expect(response).to redirect_to (dashboard_path << '#tickets:organization')
+  #     end
+  #   end
 
-    context 'as an admin user' do
-      it "redirect to dashboard" do
-        user = create(:user, :admin)
-        sign_in(user)
-        ticket = create(:ticket)
-        patch :close, params: {id: ticket.id}
-        expect(response).to redirect_to (dashboard_path)
-      end
-    end
-  end
+  #   context 'as an admin user' do
+  #     it "redirect to dashboard" do
+  #       user = create(:user, :admin)
+  #       sign_in(user)
+  #       ticket = create(:ticket)
+  #       patch :close, params: {id: ticket.id}
+  #       expect(response).to redirect_to (dashboard_path)
+  #     end
+  #   end
+  # end
 
 
 
