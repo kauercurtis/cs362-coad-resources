@@ -7,7 +7,7 @@ RSpec.describe 'Rejecting an organization', type: :feature do
         @organization = create(:organization )
     end
       
-    it 'can apporve an org' do
+    it 'can reject an org' do
     #      User Input Part
       
        log_in_as(@admin)
